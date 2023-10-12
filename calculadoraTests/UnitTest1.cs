@@ -47,7 +47,7 @@ public class UnitTest1
     {
         Calculadora calc = new Calculadora();
         
-        int resultado = calc.multiplicar(val1, val2);
+        int resultado = calc.dividir(val1, val2);
 
         Assert.Equal(resultado, resultadoEsperado);
     }
