@@ -4,12 +4,17 @@ namespace calculadoraTests;
 
 public class UnitTest1
 {
+
+    public Calculadora construirCalculadora() {
+        return new Calculadora();
+    }
+
     [Theory]
     [InlineData(1, 2, 3)]
     [InlineData(3, 2, 5)]
     public void TesteSomar(int val1, int val2, int resultadoEsperado)
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
         
         int resultado = calc.somar(val1, val2);
 
@@ -21,7 +26,7 @@ public class UnitTest1
     [InlineData(3, 2, 1)]
     public void TesteSubtrair(int val1, int val2, int resultadoEsperado)
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
         
         int resultado = calc.subtrair(val1, val2);
 
@@ -33,7 +38,7 @@ public class UnitTest1
     [InlineData(3, 2, 6)]
     public void TesteMultiplicar(int val1, int val2, int resultadoEsperado)
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
         
         int resultado = calc.multiplicar(val1, val2);
 
@@ -45,7 +50,7 @@ public class UnitTest1
     [InlineData(6, 2, 3)]
     public void TesteDividir(int val1, int val2, int resultadoEsperado)
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
         
         int resultado = calc.dividir(val1, val2);
 
@@ -55,7 +60,7 @@ public class UnitTest1
     [Fact]
     public void TesteDividirPorZero()
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
 
         Assert.Throws<DivideByZeroException>(
             () => calc.dividir(5, 0)
@@ -65,7 +70,7 @@ public class UnitTest1
     [Fact]
     public void TesteHistorico()
     {
-        Calculadora calc = new Calculadora();
+        Calculadora calc = construirCalculadora();
 
         calc.somar(1, 1);
         calc.somar(2, 3);
